@@ -1,0 +1,103 @@
+  <!-- Listing Items -->
+  <div class="container">
+    <!-- filters -->
+    <section class="filters">
+        <!-- search box -->
+        <div class="search-box">
+            <input class="search-box__input" placeholder="Search..." type="text" name="txt_search" id="">
+            <button type="submit" class="search-box__btn">
+                <i class="fas fa-search"></i>
+            </button>
+        </div>
+        <!-- filter list -->
+        <div>
+            <!-- filter header -->
+            <h5>Categories</h5>
+            <!-- filter list -->
+
+<ul class="list list--vr-separator">
+
+<app-filter-list *ngFor="let item of filterList" [filter]="item"></app-filter-list>
+
+<!-- <app-filter-list (itemAded="newItemAdded($event)") *ngFor="let item in filterList" [filter]="item"></app-filter-list> -->
+</ul>
+        </div>
+        <!-- filter tags -->
+        <div>
+            <!-- filter header -->
+            <h5>Tags</h5>
+            <!-- filter tags -->
+            <div class="tags">
+                <span class="tag">Nike</span>
+                <span class="tag">Travel</span>
+                <span class="tag">Sport</span>
+                <span class="tag">Tv</span>
+                <br>
+                <span class="tag">Books</span>
+                <span class="tag">Tech</span>
+                <span class="tag">Addidas</span>
+                <span class="tag">Promo</span>
+                <br>
+                <span class="tag">Reading</span>
+                <span class="tag">Social</span>
+                <span class="tag">New</span>
+                <span class="tag">Special</span>
+                <br>
+                <span class="tag">Food</span>
+                <span class="tag">Used</span>
+            </div>
+        </div>
+        <!-- related items -->
+        <div>
+            <!-- title -->
+            <h5></h5>
+            <!-- small item -->
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+    </section>
+    <!-- Items -->
+    <section class="item-listing">
+        <!-- tools (sorting , change view , exporting) -->
+        <div class="item-listing__tools">
+            <select class="form-control" name="" id="">
+                <option value="1">Featured</option>
+                <option value="2">Price low to high</option>
+                <option value="3">Price high to low</option>
+                <option value="4">Name</option>
+            </select>
+            <a class="action-btn" href="/add-product">
+                <i class="fas fa-plus"></i>
+            </a>
+        </div>
+        <!-- items -->
+        <div class="item-listing__items item-listing--3items">
+            <!-- medium item -->
+
+        <app-products-item  *ngFor="let item of productsArrayToBeViewed" [product]="item"  class="item-medium-1"></app-products-item>
+        <!-- <app-products-item [product]="productListArray[1]" class="item-medium-1" ></app-products-item>
+        <app-products-item [product]="productListArray[2]" class="item-medium-1" ></app-products-item>
+        <app-products-item [product]="productListArray[3]" class="item-medium-1" ></app-products-item>
+        <app-products-item [product]="productListArray[4]" class="item-medium-1" ></app-products-item>
+        <app-products-item [product]="productListArray[5]" class="item-medium-1" ></app-products-item>
+        <app-products-item [product]="productListArray[6]" class="item-medium-1" ></app-products-item>
+        <app-products-item [product]="productListArray[7]"  class="item-medium-1" ></app-products-item>
+        <app-products-item [product]="productListArray[8]"  class="item-medium-1" ></app-products-item> -->
+        </div>
+        <!-- paging -->
+        <div class="paging">
+            <!-- left arrow -->
+            <div class="paging__arrow"(click)="onPagination(currentPage-1)" >
+                <i class="fas fa-angle-left"></i>
+            </div>
+            <!-- page number -->
+            <div class="paging__number active" [ngClass]="{'active':currentPage==i}" *ngFor="let page of noOfPages, let i =index" (click)="onPagination(i)">{{page}}</div>
+
+            <!-- right arrow -->
+            <div class="paging__arrow" (click)="onPagination(currentPage+1)" >
+                <i class="fas fa-angle-right"></i>
+            </div>
+        </div>
+    </section>
+</div>
